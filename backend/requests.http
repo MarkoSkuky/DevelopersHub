@@ -1,0 +1,17 @@
+POST http://localhost:8080/developers
+Content-Type: application/json
+
+{
+  "name": "Marko Skukalek",
+  "email": "marko@gmail.com",
+  "seniority": "MEDIOR",
+  "skills": ["java", "spring", "aws"],
+  "salaryExpectation": 100
+}
+
+
+###
+GET http://localhost:8080/developers
+
+###
+DELETE http://localhost:8080/developers/1
