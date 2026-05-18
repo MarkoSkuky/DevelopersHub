@@ -10,6 +10,7 @@ public record CreateDeveloperRequest(
     String name,
 
     @Email
+    @NotBlank
     String email,
 
     @NotNull
