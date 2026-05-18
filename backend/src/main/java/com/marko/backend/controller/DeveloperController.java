@@ -1,5 +1,7 @@
 package com.marko.backend.controller;
 
+import com.marko.backend.dto.CreateDeveloperRequest;
+import com.marko.backend.dto.DeveloperResponse;
 import com.marko.backend.service.DeveloperService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
