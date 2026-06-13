@@ -186,7 +186,8 @@ function App() {
         <header>
           <h1>DeveloperHub</h1>
           <p>
-            Skuska123123123 hahaha dusan vlk
+            Frontend na tréning Spring Boot REST API, validation,
+            error handling a testingu.
           </p>
         </header>
 
