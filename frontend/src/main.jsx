@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
 
-const API_BASE_URL = "http://localhost:8080";
+const API_BASE_URL = "/api";
 
 function App() {
   const [developers, setDevelopers] = useState([]);
