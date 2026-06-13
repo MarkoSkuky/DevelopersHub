@@ -94,4 +94,4 @@ http 400 Bad Request 404 Not Found
 
 ## Planned Improvements
 
-text PostgreSQL database Docker support Docker Compose deployment HTTPS with a custom domain authentication better validation and error handling 
+text PostgreSQL database Docker support Docker Compose deployment HTTPS with a custom domain authentication better validation and error handling.
