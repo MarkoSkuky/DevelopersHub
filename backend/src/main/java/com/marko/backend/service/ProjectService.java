@@ -17,7 +17,7 @@ public class ProjectService {
     private final ProjectRepository projectRepository;
 
     public ProjectResponse getProjectById(Long id) {
-        Project project = projectRepository.getById(id)
+        Project project = projectRepository.findById(id)
             .orElseThrow(() -> new NotExistingProjectException(id));
 
         return new ProjectResponse(
@@ -30,7 +30,7 @@ public class ProjectService {
     }
 
     public List<ProjectResponse> getAllProjects() {
-        List<Project> projects = projectRepository.getAll();
+        List<Project> projects = projectRepository.findAll();
 
         return projects.stream().map(p -> new ProjectResponse(
             p.getId(),
@@ -42,7 +42,7 @@ public class ProjectService {
     }
 
     public void removeProjectById(Long id) {
-        projectRepository.getById(id)
+        projectRepository.findById(id)
             .orElseThrow(() -> new NotExistingProjectException(id));
 
         projectRepository.deleteById(id);

@@ -45,7 +45,7 @@ class DeveloperServiceTest {
 
     @Test
     void getDeveloperById_existingId_returnsDeveloper() {
-        when(developerRepository.getById(1L))
+        when(developerRepository.findById(1L))
             .thenReturn(Optional.of(developer));
 
         DeveloperResponse response = developerService.getDeveloperById(1L);
@@ -60,7 +60,7 @@ class DeveloperServiceTest {
 
     @Test
     void getDeveloperById_nonExistingId_throwsNotExistingDeveloper() {
-        when(developerRepository.getById(99L))
+        when(developerRepository.findById(99L))
             .thenReturn(Optional.empty());
 
         assertThrows(
@@ -79,7 +79,7 @@ class DeveloperServiceTest {
         secondDeveloper.setSkills(List.of("java", "docker"));
         secondDeveloper.setSalaryExpectation(3500);
 
-        when(developerRepository.getAll())
+        when(developerRepository.findAll())
             .thenReturn(List.of(developer, secondDeveloper));
 
         List<DeveloperResponse> responses = developerService.getAllDevelopers();
@@ -92,7 +92,7 @@ class DeveloperServiceTest {
 
     @Test
     void getAllDevelopers_emptyRepository_returnsEmptyList() {
-        when(developerRepository.getAll())
+        when(developerRepository.findAll())
             .thenReturn(List.of());
 
         List<DeveloperResponse> responses = developerService.getAllDevelopers();
@@ -102,7 +102,7 @@ class DeveloperServiceTest {
 
     @Test
     void removeDeveloperById_existingId_deletesDeveloper() {
-        when(developerRepository.getById(1L))
+        when(developerRepository.findById(1L))
             .thenReturn(Optional.of(developer));
 
         developerService.removeDeveloperById(1L);
@@ -112,7 +112,7 @@ class DeveloperServiceTest {
 
     @Test
     void removeDeveloperById_nonExistingId_throwsNotExistingDeveloper() {
-        when(developerRepository.getById(99L))
+        when(developerRepository.findById(99L))
             .thenReturn(Optional.empty());
 
         assertThrows(
@@ -133,8 +133,8 @@ class DeveloperServiceTest {
             2100
         );
 
-        when(developerRepository.getAll())
-            .thenReturn(List.of());
+        when(developerRepository.existsByEmail(request.email()))
+            .thenReturn(false);
 
         when(developerRepository.save(any(Developer.class)))
             .thenReturn(developer);
@@ -161,8 +161,8 @@ class DeveloperServiceTest {
             2500
         );
 
-        when(developerRepository.getAll())
-            .thenReturn(List.of(developer));
+        when(developerRepository.existsByEmail(request.email()))
+            .thenReturn(true);
 
         assertThrows(
             DeveloperAlreadyExistException.class,
