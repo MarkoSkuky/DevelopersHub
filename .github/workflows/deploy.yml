@@ -24,6 +24,9 @@ jobs:
             git pull origin main
 
             cd backend
+            set -a
+            source /etc/developerhub/backend.env
+            set +a
             mvn clean package
             systemctl restart developerhub-backend
 
