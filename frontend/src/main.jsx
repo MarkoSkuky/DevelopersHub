@@ -186,8 +186,7 @@ function App() {
         <header>
           <h1>DeveloperHub</h1>
           <p>
-            Frontend na tréning Spring Boot REST API, validation,
-            error handling a testingu.
+            HALABALA
           </p>
         </header>
 
